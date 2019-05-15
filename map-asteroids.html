@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>map asteroids</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            background-color: #000000;
+        }
+        #container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="dist/map-station.js"></script>
+    <script>
+        var controlsKeys;
+        try {
+            controlsKeys = JSON.parse(localStorage.getItem('mapStationControlsKeys'));
+        } catch(e) {
+            //
+        }
+        fetch('countries.geo.json')
+            .then(function (res) {
+                res.json()
+                    .then(function (featureCollection) {
+                        MapStation.mapAsteroids('#container',{ featureCollection, controlsKeys });
+                    })
+            });
+    </script>
+</body>
+
+</html>

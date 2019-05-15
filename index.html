@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>map station</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'PressStart2P';
+        }
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+        }
+        .box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+        }
+        .box > div {
+            flex: 1;
+            position: relative;
+        }
+        #container {
+            flex: 2;
+            padding: 16px;
+        }
+        .list {
+            padding: 16px 32px;
+            border-left: 1px dotted #777;
+            background-color: #f2f2f2;
+        }
+        .item {
+            font-size: 16px;
+        }
+        .item + .item {
+            margin-top: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="container"></div>
+        <div class="list">
+            <h1>
+                GAMES
+            </h1>
+            <div class="item">
+                <a href="map-asteroids.html">> MAP ASTEROIDS</a>
+            </div>
+            <div class="item">
+                <a href="map-snake.html">> MAP SNAKE</a>
+            </div>
+        </div>
+    </div>
+    <script src="dist/controller.js"></script>
+    <script>
+        var controller = new MapStationController('#container');
+    </script>
+</body>
+
+</html>
